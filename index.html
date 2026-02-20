@@ -64,7 +64,7 @@
 </div>
 
 <script>
-    const ADMIN_USER_ID = "8369423600";
+    const ADMIN_USER_ID = "9564024729";
 
     try {
         if (window.Telegram && Telegram.WebApp) {
@@ -74,12 +74,16 @@
     } catch (e) {}
 
     function openChat() {
-        const tgLink = "tg://user?id=" + ADMIN_USER_ID;
+        const link = "https://t.me/+" + ADMIN_USER_ID;
 
         try {
-            window.location.href = tgLink;
+            if (window.Telegram && Telegram.WebApp) {
+                Telegram.WebApp.openTelegramLink(link);
+            } else {
+                window.location.href = link;
+            }
         } catch (e) {
-            alert("Unable to open chat.");
+            window.location.href = link;
         }
     }
 </script>
