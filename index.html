@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Cᴏɴᴛᴀᴄᴛ Aᴅᴍɪɴ</title>
 
-    <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <style>
@@ -50,12 +49,6 @@
             font-size: 16px;
             cursor: pointer;
             width: 100%;
-            transition: 0.2s ease;
-        }
-
-        .btn:active {
-            transform: scale(0.97);
-            opacity: 0.9;
         }
     </style>
 </head>
@@ -81,19 +74,15 @@
     } catch (e) {}
 
     function openChat() {
-        const link = "https://t.me/user?id=" + ADMIN_USER_ID;
+        const tgLink = "tg://user?id=" + ADMIN_USER_ID;
 
         try {
-            if (window.Telegram && Telegram.WebApp) {
-                Telegram.WebApp.openTelegramLink(link);
-            } else {
-                window.location.href = link;
-            }
+            window.location.href = tgLink;
         } catch (e) {
-            window.location.href = link;
+            alert("Unable to open chat.");
         }
     }
 </script>
 
 </body>
-    </html>
+</html>
